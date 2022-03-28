@@ -9,6 +9,7 @@ import {RootState} from './ducks';
 const {store, persistor} = configureStore({} as RootState);
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

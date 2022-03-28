@@ -4,6 +4,8 @@ import {RootState} from './state';
 import {ThunkAction} from 'redux-thunk';
 import axios from 'axios';
 
+const apiUrl = 'http://localhost:8082'
+
 export type TPoint = {
   id: string;
   latitude: number;
@@ -73,7 +75,7 @@ export function getPoint(
   return async (dispatch: any) => {
     dispatch(actions.loading(true));
     return axios
-      .get(`http://localhost:8082/points/${id}`)
+      .get(`${apiUrl}/points/${id}`)
       .then(r => {
         dispatch(actions.loading(false));
         dispatch(actions.point(r.data.points));
@@ -91,7 +93,7 @@ export function getPoints(): ThunkAction<Promise<void>, RootState, any, any> {
   return async (dispatch: any) => {
     dispatch(actions.loading(true));
     return axios
-      .get('http://localhost:8082/points')
+      .get(`${apiUrl}/points`)
       .then(async r => {
         dispatch(actions.loading(false));
         const points = await Promise.all(
@@ -115,7 +117,7 @@ export function postPoint(
   return async (dispatch: any) => {
     dispatch(actions.loading(true));
     return axios
-      .post(`http://localhost:8082/points/${data.id}`, data)
+      .post(`${apiUrl}/points/${data.id}`, data)
       .then(() => {
         dispatch(actions.loading(false));
       })

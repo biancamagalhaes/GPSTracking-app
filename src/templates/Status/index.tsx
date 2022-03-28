@@ -37,8 +37,9 @@ const Status: React.FC<IStatus> = ({
       headerTitleStyle: {
         color: '#bdbdf5',
         fontWeight: 'bold',
-        fontSize: 15,
+        fontSize: 15
       },
+      headerTitleAlign: 'center'
     });
   }, [navigation]);
 
@@ -50,7 +51,7 @@ const Status: React.FC<IStatus> = ({
     <View>
       <StatusBar backgroundColor="#000066" barStyle="light-content" />
       <StatusPage
-        data={queue.getQueue().concat(points)}
+        data={(queue.getQueue().reverse()).concat(points)}
         onRefresh={() => loadPoints()}
         isRefreshing={loading}
       />

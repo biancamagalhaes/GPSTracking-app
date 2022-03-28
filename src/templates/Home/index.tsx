@@ -92,8 +92,6 @@ const Home: React.FC<IHome> = ({navigation, sendPoint}) => {
           time: formatTime(),
           sync: false,
         });
-
-        console.log('FILAA', queue.getQueue());
       }
     });
   }, activeRange * 1000);
