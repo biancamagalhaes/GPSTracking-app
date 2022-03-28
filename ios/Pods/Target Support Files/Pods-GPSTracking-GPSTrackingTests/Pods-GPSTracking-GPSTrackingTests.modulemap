@@ -1,0 +1,6 @@
+module Pods_GPSTracking_GPSTrackingTests {
+  umbrella header "Pods-GPSTracking-GPSTrackingTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
